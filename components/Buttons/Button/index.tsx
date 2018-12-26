@@ -1,5 +1,4 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 
 const sizes = {
   large: 'ph8 pv4 f3 ',
@@ -15,7 +14,17 @@ const styles = {
   danger: 'ba b--danger bg-danger dim c-on-danger pointer '
 }
 
-class Button extends PureComponent {
+class Button extends React.PureComponent<any,any> {
+
+  static defaultProps = {
+    size: 'normal',
+    style: 'primary',
+    type: 'button',
+    fullWidth: false,
+    isDisabled: false,
+    onClick: null
+  }
+  
   handleClick = event => {
     !this.props.isDisabled && this.props.onClick && this.props.onClick(event)
   }
@@ -40,35 +49,27 @@ class Button extends PureComponent {
   }
 }
 
-Button.propTypes = {
-  /** Set button's name. */
-  name: PropTypes.string,
-  /** Define the size of the button. */
-  size: PropTypes.oneOf(['small', 'normal', 'large']),
-  /** Define how the button will look. */
-  style: PropTypes.oneOf(['primary', 'secondary', 'danger']),
-  /** Define type of the button. */
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  /** Make button full width. */
-  fullWidth: PropTypes.bool,
-  /** Make button disabled. */
-  isDisabled: PropTypes.bool,
-  /** Add icon to a button. */
-  icon: PropTypes.element,
-  /** Function that will be called when user click on button. */
-  onClick: PropTypes.func,
-  /** Append css classes to the button. */
-  className: PropTypes.string,
-  children: PropTypes.node
-}
+// Button.propTypes = {
+//   /** Set button's name. */
+//   name: PropTypes.string,
+//   /** Define the size of the button. */
+//   size: PropTypes.oneOf(['small', 'normal', 'large']),
+//   /** Define how the button will look. */
+//   style: PropTypes.oneOf(['primary', 'secondary', 'danger']),
+//   /** Define type of the button. */
+//   type: PropTypes.oneOf(['button', 'submit', 'reset']),
+//   /** Make button full width. */
+//   fullWidth: PropTypes.bool,
+//   /** Make button disabled. */
+//   isDisabled: PropTypes.bool,
+//   /** Add icon to a button. */
+//   icon: PropTypes.element,
+//   /** Function that will be called when user click on button. */
+//   onClick: PropTypes.func,
+//   /** Append css classes to the button. */
+//   className: PropTypes.string,
+//   children: PropTypes.node
+// }
 
-Button.defaultProps = {
-  size: 'normal',
-  style: 'primary',
-  type: 'button',
-  fullWidth: false,
-  isDisabled: false,
-  onClick: null
-}
 
 export default Button

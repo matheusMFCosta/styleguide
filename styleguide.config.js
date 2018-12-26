@@ -1,78 +1,44 @@
 const path = require('path')
+const glob = require('glob')
 
 module.exports = {
   require: ['@arcanis-inc/tachyons'],
   title: 'Arcanis Styleguide',
   sections: [
     {
-      name: 'Components',
-      sections: [
-        {
-          name: 'Buttons',
-          components: 'src/lib/components/Buttons/**/*.js'
-        },
-        {
-          name: 'Cards',
-          components: 'src/lib/components/Cards/**/*.js'
-        },
-        {
-          name: 'Data',
-          components: 'src/lib/components/Data/**/*.js'
-        },
-        {
-          name: 'Form',
-          components: 'src/lib/components/Form/**/*.js'
-        },
-        {
-          name: 'General',
-          components: 'src/lib/components/General/**/*.js'
-        },
-        {
-          name: 'Indicators',
-          components: 'src/lib/components/Indicators/**/*.js'
-        },
-        {
-          name: 'Navigation',
-          components: 'src/lib/components/Navigation/**/*.js'
-        },
-        {
-          name: 'Notifications',
-          components: 'src/lib/components/Notifications/**/*.js'
-        },
-        {
-          name: 'Profile',
-          components: 'src/lib/components/Profile/**/*.js'
-        }
-      ]
+      name: 'Test section 1',
+      description: 'Test secion 1 description',
+      components: function() {
+        return glob.sync(path.resolve(__dirname, 'components/**/*.tsx')).filter(function(module) {
+          return /\/[A-Z]\w*\.tsx$/.test(module)
+        })
+      }
     },
     {
-      name: 'Icons',
-      content: 'src/lib/icons/icons.md',
-      components: 'src/lib/icons/**/*.js'
+      name: 'Test secion 2',
+      description: 'Test section 2 description'
     }
   ],
   webpackConfig: {
     module: {
       rules: [
-        {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
+        { test: /\.tsx?$/, loader: 'ts-loader' },
         {
           test: /\.css$/,
           exclude: /.*style.css/,
           loader: 'style-loader!css-loader'
         },
         {
-          // Deu merda! Não use para css modules.
+          // VAI DAR MERDA! Se qualquer componente externo usar css style.css!
           test: /.*style.css/,
           loader: 'style-loader!css-loader?modules'
         }
       ]
     }
   },
-  skipComponentsWithoutExample: true,
+  resolver: require('react-docgen').resolver.findAllComponentDefinitions,
+  propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: false } })
+    .parse,
   getComponentPathLine(componentPath) {
     const pathArray = path.dirname(componentPath).split(path.sep)
     const componentName = pathArray[pathArray.length - 1]

@@ -1,35 +1,7 @@
-### Styleguide
+# Example project
 
-https://arcanis.github.io/styleguide
+First you need to install depedencies either by running `npm install`.
 
-### Setup
+Then you can start it with `npm start` and navigate to http://localhost:6060/.
 
-```sh
-git clone https://github.com/arcanis/styleguide.git
-cd styleguide
-npm install
-```
-
-### Developing using Styleguidist
-
-Start the server with:
-
-```sh
-npm run styleguide
-```
-
-### Publish new version with Releasy
-
-```sh
-npm run compile
-git commit -a
-releasy --stable
-npm publish
-```
-
-### Publishing Styleguide page on Github
-
-```sh
-npm run styleguide:build
-npm run github
-```
+The project was tested against the _node version v10.0.1_. 
