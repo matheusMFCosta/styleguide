@@ -1,8 +1,8 @@
 const path = require('path')
 
 module.exports = {
-  require: ['vtex-tachyons', '@gocommerce/tachyons'],
-  title: 'GoCommerce Styleguide',
+  require: ['@arcanis-inc/tachyons'],
+  title: 'Arcanis Styleguide',
   sections: [
     {
       name: 'Components',
@@ -77,6 +77,6 @@ module.exports = {
     const pathArray = path.dirname(componentPath).split(path.sep)
     const componentName = pathArray[pathArray.length - 1]
     const dir = path.relative(path.join('src'), path.dirname(componentPath))
-    return `import { ${componentName} } from '@gocommerce/styleguide';`
+    return `import { ${componentName} } from '@arcanis/styleguide';`
   }
 }

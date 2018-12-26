@@ -9,9 +9,6 @@
   <Button className="mr2" style="danger">
     Danger
   </Button>
-  <Button className="mr2" style="outline">
-    Outline
-  </Button>
   <Button isDisabled>Disabled</Button>
 </div>
 ```
@@ -34,7 +31,9 @@ Button Full Width
 
 ```js
 <div>
-  <Button className="mt2" fullWidth>Full Width</Button>
+  <Button className="mt2" fullWidth>
+    Full Width
+  </Button>
 </div>
 ```
 

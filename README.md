@@ -1,11 +1,11 @@
 ### Styleguide
 
-https://vtex-gocommerce.github.io/styleguide
+https://arcanis.github.io/styleguide
 
 ### Setup
 
 ```sh
-git clone https://github.com/vtex-gocommerce/styleguide.git
+git clone https://github.com/arcanis/styleguide.git
 cd styleguide
 npm install
 ```
