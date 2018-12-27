@@ -10,7 +10,8 @@ module.exports = {
       description: 'Test secion 1 description',
       components: function() {
         return glob.sync(path.resolve(__dirname, 'components/**/*.tsx')).filter(function(module) {
-          return /\/[A-Z]\w*\.tsx$/.test(module)
+          console.log(`module`, module)
+          return module.includes('.tsx')
         })
       }
     },
@@ -36,8 +37,8 @@ module.exports = {
       ]
     }
   },
-  resolver: require('react-docgen').resolver.findAllComponentDefinitions,
-  propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: false } })
+  resolver: require('react-docgen').resolver.findExportedComponentDefinition,
+  propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } })
     .parse,
   getComponentPathLine(componentPath) {
     const pathArray = path.dirname(componentPath).split(path.sep)

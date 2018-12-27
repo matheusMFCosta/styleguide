@@ -14,8 +14,29 @@ const styles = {
   danger: 'ba b--danger bg-danger dim c-on-danger pointer '
 }
 
-class Button extends React.PureComponent<any,any> {
+interface ButtonType {
+  /** Set button's name. */
+  name: string
+  /** Define the size of the button. */
+  size: 'small' | 'normal' | 'large'
+  /** Define how the button will look. */
+  style: 'primary' | 'secondary' | 'danger'
+  /** Define type of the button. */
+  type: 'button' | 'submit' | 'reset'
+  /** Make button full width. */
+  fullWidth: boolean
+  /** Make button disabled. */
+  isDisabled: boolean
+  /** Add icon to a button. */
+  icon: any
+  /** Function that will be called when user click on button. */
+  onClick: Function
+  /** Append css classes to the button. */
+  className: string
+  children: any
+}
 
+class Button extends React.PureComponent<ButtonType, any> {
   static defaultProps = {
     size: 'normal',
     style: 'primary',
@@ -24,7 +45,7 @@ class Button extends React.PureComponent<any,any> {
     isDisabled: false,
     onClick: null
   }
-  
+
   handleClick = event => {
     !this.props.isDisabled && this.props.onClick && this.props.onClick(event)
   }
@@ -48,28 +69,5 @@ class Button extends React.PureComponent<any,any> {
     )
   }
 }
-
-// Button.propTypes = {
-//   /** Set button's name. */
-//   name: PropTypes.string,
-//   /** Define the size of the button. */
-//   size: PropTypes.oneOf(['small', 'normal', 'large']),
-//   /** Define how the button will look. */
-//   style: PropTypes.oneOf(['primary', 'secondary', 'danger']),
-//   /** Define type of the button. */
-//   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-//   /** Make button full width. */
-//   fullWidth: PropTypes.bool,
-//   /** Make button disabled. */
-//   isDisabled: PropTypes.bool,
-//   /** Add icon to a button. */
-//   icon: PropTypes.element,
-//   /** Function that will be called when user click on button. */
-//   onClick: PropTypes.func,
-//   /** Append css classes to the button. */
-//   className: PropTypes.string,
-//   children: PropTypes.node
-// }
-
 
 export default Button
