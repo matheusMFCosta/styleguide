@@ -8,6 +8,9 @@ Button Types
   <Button className="mr2" style="secondary">
     Secondary
   </Button>
+  <Button className="mr2" style="danger">
+    Danger
+  </Button>
   <Button isDisabled>Disabled</Button>
 </div>
 ```

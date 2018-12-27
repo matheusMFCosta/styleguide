@@ -8,9 +8,9 @@ const sizes = {
 
 const styles = {
   primary:
-    'bg-animate ba b--action-primary hover-b--action-primary bg-action-primary hover-bg-action-primary c-on-action-primary pointer ',
+    'bg-animate ba b--primary hover-b--primary bg-primary hover-bg-primary c-on-primary hover-c-on-primary pointer ',
   secondary:
-    'bg-animate ba b--action-secondary hover-b--action-secondary bg-action-secondary hover-bg-action-secondary c-on-action-secondary pointer ',
+    'bg-animate ba b--secondary hover-b--secondary bg-secondary hover-bg-secondary c-on-secondary hover-c-on-secondary  pointer ',
   danger: 'ba b--danger bg-danger dim c-on-danger pointer '
 }
 

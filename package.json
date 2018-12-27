@@ -1,6 +1,6 @@
 {
   "name": "@arcanis/styleguide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@arcanis-inc/tachyons": "0.0.2",
+    "@arcanis-inc/tachyons": "^0.0.3",
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "react": "^16.5.0",
